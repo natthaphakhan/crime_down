@@ -75,21 +75,23 @@ class _SearchState extends State<Search> {
                     const SizedBox(
                       height: 10,
                     ),
-                    SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: 427,
-                        child: ListView(children: [
+                    Expanded(
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: [
                           GestureDetector(
                             child: Image.asset('assets/search_result.png'),
                             onTap: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const Navigation()));
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Navigation()),
+                              );
                             },
                           )
-                        ])),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

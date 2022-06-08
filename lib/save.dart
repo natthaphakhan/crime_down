@@ -34,34 +34,36 @@ class _SaveState extends State<Save> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          'assets/header_save.png',
-          fit: BoxFit.fitWidth,
-        ),
-        GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (contex) => const Navigation()));
-            },
-            child: content[0]),
-        delete == false
-            ? Column(
-                children: [
-                  GestureDetector(
-                      onTap: () {
-                        delete = true;
-                        setState(() {
-                          content.removeAt(1);
-                        });
-                      },
-                      child: content[1]),
-                  content[2]
-                ],
-              )
-            : content[1]
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Image.asset(
+            'assets/header_save.png',
+            fit: BoxFit.fitWidth,
+          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (contex) => const Navigation()));
+              },
+              child: content[0]),
+          delete == false
+              ? Column(
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          delete = true;
+                          setState(() {
+                            content.removeAt(1);
+                          });
+                        },
+                        child: content[1]),
+                    content[2]
+                  ],
+                )
+              : content[1]
+        ],
+      ),
     );
   }
 }
